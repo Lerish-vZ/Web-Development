@@ -1,4 +1,4 @@
-let movies;
+let movies; //stores refernece to the database
 export default class MoviesDAO {
   static async injectDB(conn) {
     if (movies) {
