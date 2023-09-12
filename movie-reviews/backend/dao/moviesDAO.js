@@ -1,11 +1,13 @@
 let movies; //stores refernece to the database
 
 export default class MoviesDAO {
-  static async injectDB(conn) { //injectDB (async method) gets called as soon as server starts. Provides database reference to movies.
+  static async injectDB(conn) {
+    //injectDB (async method) gets called as soon as server starts. Provides database reference to movies.
     if (movies) {
       return;
     }
-    try { //if reference already exists we return...(next line)
+    try {
+      //if reference already exists we return...(next line)
       movies = await conn.db(process.env.MOVIEREVIEWS_NS).collection("movies");
     } catch (e) {
       console.error(`unable to connect in MoviesDAO: ${e}`);
@@ -13,4 +15,4 @@ export default class MoviesDAO {
   }
 }
 
-//method to get all movies from database
+//method to get all movies from database p36
