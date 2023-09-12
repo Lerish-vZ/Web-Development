@@ -1,6 +1,7 @@
 let movies; //stores refernece to the database
+
 export default class MoviesDAO {
-  static async injectDB(conn) {
+  static async injectDB(conn) { //injectDB (async method) gets called as soon as server starts. Provides database reference to movies.
     if (movies) {
       return;
     }
