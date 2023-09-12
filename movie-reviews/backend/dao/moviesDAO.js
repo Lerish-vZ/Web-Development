@@ -5,10 +5,12 @@ export default class MoviesDAO {
     if (movies) {
       return;
     }
-    try {
+    try { //if reference already exists we return...(next line)
       movies = await conn.db(process.env.MOVIEREVIEWS_NS).collection("movies");
     } catch (e) {
       console.error(`unable to connect in MoviesDAO: ${e}`);
     }
   }
 }
+
+//method to get all movies from database
