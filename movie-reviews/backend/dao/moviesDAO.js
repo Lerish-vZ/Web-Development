@@ -16,3 +16,14 @@ export default class MoviesDAO {
 }
 
 //method to get all movies from database p36
+
+static async({
+  filers = null,
+  page = 0,
+  moviesPerPage = 20,
+} = {}) {
+    let query 
+    if(filters) {
+      
+    }
+}
