@@ -1,3 +1,6 @@
+import mongodb from "mongodb";
+const ObjectId = mongodb.ObjectID;
+
 let movies; //stores refernece to the database
 
 export default class MoviesDAO {
@@ -54,5 +57,28 @@ export default class MoviesDAO {
       return ratings;
     }
   }
-  
+
+  static async getMovieById(id){
+    try{
+      return await movies.aggregate([ //We use aggregate to provide a sequence of data aggregation operations.
+        {
+          $match: {
+            _id: new ObjectId(id)
+          }
+        },
+        { $lookup: //syntax
+          {
+            from: 'reviews', // <collection to join>
+            localField: '_id', // <field from the input document>
+            foreignField: 'movie_id', // <field from the documents of the "form" collection>
+            as: 'reviews', // <output array field
+          } //This finds all the reviews with the specific movie id and returns the specific movie together with the reviews in an array.
+        }
+      ]).next();
+    }
+    catch(e){
+      console.error(`something went wrong in getMovieById: ${e}`);
+      throw e;
+    }
+  }
 }
