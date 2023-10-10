@@ -1,0 +1,1 @@
+//component to list a single movie
