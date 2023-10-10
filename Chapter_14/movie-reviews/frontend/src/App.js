@@ -15,12 +15,23 @@ function App() {
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">Movie Reviews</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
+            <Nav.Link href="#home">
+              <Link to={"/movies"}>Movies</Link>
+            </Nav.Link>
+            <Nav.Link href="#link">
+
+            {/* if user is logged in (true) display logout, otherwise display login and link it to /login  */}
+              { user ? ( 
+                <a>Logout User </a>
+              ) : (
+                <Link to={"/login"}> Login </Link>
+              )}
+              
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
