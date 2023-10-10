@@ -12,6 +12,20 @@ import Movie from "./components/movie";
 import Login from "./components/login";
 
 function App() {
+  //react.useState is a 'hook'that lets us add some local state to functional components
+   const [user, setUser] = React.useState(null);
+
+  //  useState returns an array with two values: the current state value and a function that lets you update it
+
+  async function login(user = null) {
+    // default user to null
+    setUser(user);
+  }
+
+  async function logout() {
+    setUser(null);
+  }
+
   return (
     <div className="App">
       <Navbar bg="light" expand="lg">
@@ -23,17 +37,12 @@ function App() {
               <Link to={"/movies"}>Movies</Link>
             </Nav.Link>
             <Nav.Link href="#link">
+              {/* ternary statement where if its true, execute the section after the '?' */}
+              {/* If false, execute the section after the colon ':'. */}
+              {/* if user is logged in (true) display logout, otherwise display login and link it to /login  */}
+              {user ? <a onClick={logout}> Logout User </a> : <Link to={"/login"}> Login </Link>}
 
-            {/* ternary statement where if its true, execute the section after the '?' */}
-            {/* If false, execute the section after the colon ':'. */}
-            {/* if user is logged in (true) display logout, otherwise display login and link it to /login  */}
-              { user ? ( 
-                <a>Logout User </a>
-              ) : (
-                <Link to={"/login"}> Login </Link>
-              )}
-
-            {/* In React, we can use curly braces ‘{}’ to put in code. */}
+              {/* In React, we can use curly braces ‘{}’ to put in code. */}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
