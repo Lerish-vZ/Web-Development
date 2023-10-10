@@ -3,6 +3,8 @@ import "./App.css";
 import React from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 import AddReview from "./components/add-review";
 import MoviesList from "./components/movies-list";
