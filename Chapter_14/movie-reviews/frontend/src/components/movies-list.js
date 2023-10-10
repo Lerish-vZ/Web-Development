@@ -9,3 +9,5 @@ function MoviesList() {
         </div>
     );
 }
+
+export default MoviesList;
