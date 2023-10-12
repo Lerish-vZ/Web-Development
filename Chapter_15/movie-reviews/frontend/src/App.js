@@ -51,16 +51,23 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      {/* Switch component renders the first route that matches. */}
       <Switch>
-        <Route exact path={["/", "/movies"]} component={MoviesList}></Route>
+        {/* If the path is “/” or “/movies”, show the MoviesList component */}
+        <Route exact path={["/", "/movies"]} component={MoviesList}></Route> 
+
+        {/* we are passing user (the logged-in user information) as props to the AddReview component. */}
+        {/* We use render because it allows us to pass in props into a component */}
         <Route
           path="/movies/:id/review"
           render={(props) => <AddReview {...props} user={user} />}
         ></Route>
+
         <Route
           path="/movies/:id/"
           render={(props) => <Movie {...props} user={user} />}
         ></Route>
+        
         <Route
           path="/login"
           render={(props) => <Login {...props} login={login} />}
