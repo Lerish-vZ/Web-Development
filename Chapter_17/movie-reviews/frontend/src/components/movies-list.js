@@ -11,7 +11,32 @@ const MoviesList = (props) => { // is functional component and receives and uses
   const [ratings, setRatings] = useState(["All Ratings"]);
 };
 
+useEffect(() => {
+    retrieveMovies()
+    retrieveRatings()
+}, [])
 
+const retrieveMovies = () => {
+    MovieDataService.getAll()
+    .then(response => {
+        console.log(response.data.movies)
+    })
+    .catch( e => {
+        console.log(e)
+    })
+}
+
+const retrieveRatings = () => {
+    MovieDataService.getRatings()
+    .then(response => {
+        console.log(response.data)
+        //start with 'All ratings' if user doesn't specify any ratings
+        setRatings(["All Ratings"].concat(response.data))
+    })
+    .catch(e => {
+        console.log(e)
+    })
+}
 
 function MoviesList() {
   return <div className="App">Movies List</div>;
