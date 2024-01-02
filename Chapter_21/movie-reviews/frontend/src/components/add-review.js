@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 const AddReview = (props) => {
   let editing = false;
   let initialReviewState = "";
-  
+
   if (props.location.state && props.location.state.currentReview) {
     editing = true;
     initialReviewState = props.location.state.currentReview.review;
@@ -30,14 +30,26 @@ const AddReview = (props) => {
       user_id: props.user.id,
       movie_id: props.match.params.id, // get movie id direct from url
     };
-
-    MovieDataService.createReview(data)
-      .then((response) => {
-        setSubmitted(true);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    if (editing) {
+      // get existing review id
+      data.review_id = props.location.state.currentReview._id;
+      MovieDataService.updateReview(data)
+        .then((response) => {
+          setSubmitted(true);
+          console.log(response.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      MovieDataService.createReview(data)
+        .then((response) => {
+          setSubmitted(true);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
 
   return (
