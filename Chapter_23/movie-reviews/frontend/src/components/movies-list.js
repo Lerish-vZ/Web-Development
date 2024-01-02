@@ -32,9 +32,9 @@ const MoviesList = (props) => {
   const retrieveMovies = () => {
     MovieDataService.getAll(currentPage)
       .then((response) => {
-        setMovies(response.data.movies)
-        setCurrentPage(response.data.page)
-        setEntriesPerPage(response.data.entries_per_page)
+        setMovies(response.data.movies);
+        setCurrentPage(response.data.page);
+        setEntriesPerPage(response.data.entries_per_page);
       })
       .catch((e) => {
         console.log(e);
@@ -134,6 +134,16 @@ const MoviesList = (props) => {
             );
           })}
         </Row>
+        <br />
+        Showing page: {currentPage}.
+        <Button
+          variant="link"
+          onClick={() => {
+            setCurrentPage(currentPage + 1);
+          }}
+        >
+          Get next {entriesPerPage} results
+        </Button>
       </Container>
     </div>
   );
