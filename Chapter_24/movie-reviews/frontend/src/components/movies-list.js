@@ -86,6 +86,7 @@ const MoviesList = (props) => {
   };
 
   const findByRating = () => {
+    setCurrentSearchMode("findByRating")
     if (searchRating === "All Ratings") {
       retrieveMovies();
     } else {
