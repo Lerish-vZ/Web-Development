@@ -30,9 +30,11 @@ const MoviesList = (props) => {
   }, [currentPage]);
 
   const retrieveMovies = () => {
-    MovieDataService.getAll()
+    MovieDataService.getAll(currentPage)
       .then((response) => {
-        console.log(response.data.movies);
+        setMovies(response.data.movies)
+        setCurrentPage(response.data.page)
+        setEntriesPerPage(response.data.entries_per_page)
       })
       .catch((e) => {
         console.log(e);
