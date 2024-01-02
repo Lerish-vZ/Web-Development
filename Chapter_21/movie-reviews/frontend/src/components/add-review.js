@@ -5,6 +5,7 @@ import MovieDataService from "../services/movies";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
 const AddReview = (props) => {
   let editing = false;
   let initialReviewState = "";
@@ -15,6 +16,7 @@ const AddReview = (props) => {
     const review = e.target.value;
     setReview(review);
   };
+
   const saveReview = () => {
     var data = {
       review: review,
@@ -22,6 +24,7 @@ const AddReview = (props) => {
       user_id: props.user.id,
       movie_id: props.match.params.id, // get movie id direct from url
     };
+
     MovieDataService.createReview(data)
       .then((response) => {
         setSubmitted(true);
@@ -30,6 +33,7 @@ const AddReview = (props) => {
         console.log(e);
       });
   };
+
   return (
     <div>
       {submitted ? (
@@ -56,4 +60,5 @@ const AddReview = (props) => {
     </div>
   );
 };
+
 export default AddReview;
