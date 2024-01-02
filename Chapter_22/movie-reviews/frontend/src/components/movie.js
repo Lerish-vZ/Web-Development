@@ -35,6 +35,8 @@ const Movie = (props) => {
     getMovie(props.match.params.id);
   }, [props.match.params.id]);
 
+  
+
   return (
     <div>
       <Container>
@@ -80,7 +82,12 @@ const Movie = (props) => {
                           </Link>
                         </Col>
                         <Col>
-                          <Button variant="link">Delete</Button>
+                          <Button
+                            variant="link"
+                            onClick={() => deleteReview(review._id, index)}
+                          >
+                            Delete
+                          </Button>
                         </Col>
                       </Row>
                     )}
