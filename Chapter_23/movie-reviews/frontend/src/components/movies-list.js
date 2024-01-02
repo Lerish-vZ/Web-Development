@@ -25,7 +25,9 @@ const MoviesList = (props) => {
     retrieveRatings();
   }, []);
 
-  
+  useEffect(() => {
+    retrieveMovies();
+  }, [currentPage]);
 
   const retrieveMovies = () => {
     MovieDataService.getAll()
