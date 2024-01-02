@@ -17,11 +17,15 @@ const MoviesList = (props) => {
   const [searchTitle, setSearchTitle] = useState("");
   const [searchRating, setSearchRating] = useState("");
   const [ratings, setRatings] = useState(["All Ratings"]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [entriesPerPage, setEntriesPerPage] = useState(0);
 
   useEffect(() => {
     retrieveMovies();
     retrieveRatings();
   }, []);
+
+  
 
   const retrieveMovies = () => {
     MovieDataService.getAll()
@@ -68,7 +72,7 @@ const MoviesList = (props) => {
   const findByTitle = () => {
     find(searchTitle, "title");
   };
-  
+
   const findByRating = () => {
     if (searchRating === "All Ratings") {
       retrieveMovies();
