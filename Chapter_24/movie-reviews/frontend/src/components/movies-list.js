@@ -36,7 +36,7 @@ const MoviesList = (props) => {
   };
 
   const retrieveMovies = () => {
-    setCurrentSearchMode("")
+    setCurrentSearchMode("");
     MovieDataService.getAll(currentPage)
       .then((response) => {
         setMovies(response.data.movies);
@@ -81,12 +81,12 @@ const MoviesList = (props) => {
   };
 
   const findByTitle = () => {
-    setCurrentSearchMode("findByTitle")
+    setCurrentSearchMode("findByTitle");
     find(searchTitle, "title");
   };
 
   const findByRating = () => {
-    setCurrentSearchMode("findByRating")
+    setCurrentSearchMode("findByRating");
     if (searchRating === "All Ratings") {
       retrieveMovies();
     } else {
