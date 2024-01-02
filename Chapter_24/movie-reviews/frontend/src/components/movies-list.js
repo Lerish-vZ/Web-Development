@@ -24,9 +24,11 @@ const MoviesList = (props) => {
   useEffect(() => {
     setCurrentPage(0);
   }, [currentSearchMode]);
+
   useEffect(() => {
     retrieveNextPage();
   }, [currentPage]);
+
   const retrieveNextPage = () => {
     if (currentSearchMode === "findByTitle") findByTitle();
     else if (currentSearchMode === "findByRating") findByRating();
@@ -67,7 +69,7 @@ const MoviesList = (props) => {
   };
 
   const find = (query, by) => {
-    MovieDataService.find(query, by)
+    MovieDataService.find(query, by, currentPage)
       .then((response) => {
         console.log(response.data);
         setMovies(response.data.movies);
