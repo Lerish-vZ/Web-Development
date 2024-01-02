@@ -81,6 +81,7 @@ const MoviesList = (props) => {
   };
 
   const findByTitle = () => {
+    setCurrentSearchMode("findByTitle")
     find(searchTitle, "title");
   };
 
