@@ -36,6 +36,7 @@ const MoviesList = (props) => {
   };
 
   const retrieveMovies = () => {
+    setCurrentSearchMode("")
     MovieDataService.getAll(currentPage)
       .then((response) => {
         setMovies(response.data.movies);
