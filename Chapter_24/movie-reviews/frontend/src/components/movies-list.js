@@ -21,6 +21,7 @@ const MoviesList = (props) => {
   const [entriesPerPage, setEntriesPerPage] = useState(0);
   const [currentSearchMode, setCurrentSearchMode] = useState("");
 
+  
   useEffect(() => {
     retrieveMovies();
     retrieveRatings();
