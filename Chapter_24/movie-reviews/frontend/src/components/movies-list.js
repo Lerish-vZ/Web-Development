@@ -19,6 +19,7 @@ const MoviesList = (props) => {
   const [ratings, setRatings] = useState(["All Ratings"]);
   const [currentPage, setCurrentPage] = useState(0);
   const [entriesPerPage, setEntriesPerPage] = useState(0);
+  const [currentSearchMode, setCurrentSearchMode] = useState("");
 
   useEffect(() => {
     retrieveMovies();
