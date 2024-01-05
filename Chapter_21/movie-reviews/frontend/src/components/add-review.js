@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const AddReview = (props) => {
-  let editing = false;
+  let editing = false; //will be set to true if the component is in 'Editing' mode. False means a review is being added
   let initialReviewState = "";
 
   if (props.location.state && props.location.state.currentReview) {
