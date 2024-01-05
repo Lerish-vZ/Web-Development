@@ -9,8 +9,8 @@ import Image from 'react-bootstrap/Image';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import Media from 'react-bootstrap/Media';
-import moment from 'moment';
+//import Media from 'react-bootstrap/Media';
+//import moment from 'moment';
 
 
 const Movie = (props) => {
