@@ -40,7 +40,11 @@ function App() {
               {/* ternary statement where if its true, execute the section after the '?' */}
               {/* If false, execute the section after the colon ':'. */}
               {/* if user is logged in (true) display logout, otherwise display login and link it to /login  */}
-              {user ? <a onClick={logout}> Logout User </a> : <Link to={"/login"}> Login </Link>}
+              {user ? (
+                <a onClick={logout}> Logout User </a> 
+                ) : (
+                <Link to={"/login"}> Login </Link>
+              )}
 
               {/* In React, we can use curly braces ‘{}’ to put in code. */}
             </Nav.Link>
