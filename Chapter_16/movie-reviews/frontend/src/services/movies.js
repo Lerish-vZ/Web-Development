@@ -1,4 +1,5 @@
 import axios from "axios";
+
 class MovieDataService {
   getAll(page = 0) {
     return axios.get(`http://localhost:5000/api/v1/movies?page=${page}`);
@@ -26,4 +27,7 @@ class MovieDataService {
     return axios.get("http://localhost:5000/api/v1/movies/ratings");
   }
 }
+
+/* The class MovieDataService contains functions which make the API calls to the backend endpoints we have
+implemented and return the results */
 export default new MovieDataService();
